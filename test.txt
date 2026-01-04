@@ -1,0 +1,16 @@
+{
+  "education_level": "THPT",
+  "grade": 11,
+  "subject": "Toán",
+  "default_fee": 1000000,
+  "note": "Không có gì để note",
+  "type": "online",
+  "address": "string",
+  "schedule_json": {
+    "days": ["Mon", "Wed", "Fri"],
+    "start_time": "08:00",
+    "end_time": "10:00"
+  },
+  "start_date": "2025-11-19",
+  "end_date": "2025-12-19"
+}

@@ -1,0 +1,59 @@
+/* Hàng lựa chọn mẫu 2-4-6 / 3-5-7 / Khác */
+.week-pattern-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+
+.pattern-btn {
+  border-radius: 999px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  background: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.06s;
+}
+
+.pattern-btn:hover {
+  border-color: var(--brand);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  transform: translateY(-1px);
+}
+
+.pattern-btn.is-selected {
+  background: #f5f0ff;
+  border-color: var(--brand);
+  color: var(--brand-600);
+  font-weight: 600;
+}
+/* Nút tiếp tục thanh toán */
+.confirmPayment-btn {
+  background-color: #17a723d4;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: .25s;
+  justify-content: flex-end;
+}
+
+.confirmPayment-btn:hover {
+  background-color: #168e34;
+  transform: translateY(-1px);
+}
+
+
+/* Modal PaymentModal */
+.modal-actions {
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 12px; /* Khoảng cách giữa 2 nút */
+  margin-top: 20px;
+  width: 100%;
+}

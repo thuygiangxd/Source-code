@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gia Sư Trực Tuyến – Nền tảng học tập</title>
+  <meta name="description" content="Nền tảng học trực tuyến: khoá luyện thi, bồi dưỡng kiến thức, theo dõi tiến độ." />
+  <link rel="stylesheet" href="./MyPage.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#">
+        <img class="brand-logo" src="../../assets/images/Logo_Group.png" alt="G&3N Logo" />
+        <span>GIASUNO1</span>
+      </a>
+      <nav>
+        <div class="nav">
+          <a href="#khoahoc">Trang chủ</a>
+          <a href="#giaovien">Giáo viên</a>
+          <a href="#luyenthi">Luyện thi</a>
+          <a href="#tuyendung">Tuyển dụng</a>
+          <a href="#blog">Hỗ trợ</a>
+          <details class="user-mini" aria-label="Tùy chọn tài khoản">
+          <summary class="avatar-btn" aria-haspopup="menu" aria-expanded="false">
+            <img src="../images/avatar.jpg" alt="Ảnh đại diện" />
+            <div class="u-meta">
+              <div class="nm" id="userName">Cao Thùy Giang</div>
+              <div class="uid">Mã HV: 52200138</div>
+            </div>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </summary>
+
+            <div class="user-popover" role="menu">
+            <a role="menuitem" href="#thong-tin" class="mi">
+                <svg class="mi-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-8 2.24-8 5v1h16v-1c0-2.76-3.6-5-8-5Z"
+                        fill="currentColor"/>
+                </svg>
+                Quản lý thông tin
+            </a>
+
+             <a role="menuitem" href="#khoa-hoc-cua-toi" class="mi">
+                <svg class="mi-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 19h16V5H4v14Zm2-2V7h12v10H6Zm3-2h6v-2H9v2Z"
+                        fill="currentColor"/>
+                </svg>
+                Khóa học của tôi
+            </a>
+
+            <a role="menuitem" href="#lich-su-thanh-toan" class="mi">
+              <svg class="mi-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 7H3V5h18v2ZM3 9h18v10H3V9Zm2 2v6h14v-6H5Zm2 2h4v2H7v-2Z" fill="currentColor"/>
+              </svg>
+              Lịch sử thanh toán
+            </a>
+
+            <a role="menuitem" href="#doi-mat-khau" class="mi">
+                <svg class="mi-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17 8V6a5 5 0 0 0-10 0v2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-2Zm-8 0V6a3 3 0 0 1 6 0v2H9Z"
+                        fill="currentColor"/>
+                </svg>
+                Đổi mật khẩu
+            </a>
+
+            <hr class="menu-divider" />
+
+            <button role="menuitem" type="button" class="mi link-danger" id="btnSignOut">
+                <svg class="mi-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10 17v2H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h6v2H5v10h5Zm9.59-5-3-3L17 7l5 5-5 5-1.41-2 3-3H11v-2h8.59Z"
+                        fill="currentColor"/>
+                </svg>
+                Đăng xuất
+            </button>
+            </div>
+
+        </details>
+
+        </div>
+      </nav>
+      <button class="menu-btn" aria-label="Mở menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="#111" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Layout -->
+  <div class="shell">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="user-mini">
+        <img src="../images/avatar.jpg" alt="avatar"/>
+        <div>
+          <div class="nm">Giang Thùy</div>
+          <div style="font-size:12px;color:var(--muted)">Hạng: Silver</div>
+        </div>
+      </div>
+
+      <nav class="side-nav">
+        <a class="side-link" href="#dashboard">Dashboard</a>
+        <a class="side-link is-active" href="#mypage">Trang chủ</a>
+        <a class="side-link" href="#schedule">Lịch học</a>
+        <a class="side-link" href="#courses">Danh sách khóa học</a>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <main class="content-area">
+  <!-- DASHBOARD -->
+  <section id="dashboard" class="content-section">
+    <h2>Tổng quan học tập</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h4>Khóa học đã đăng ký</h4>
+        <p class="big">4</p>
+      </div>
+      <div class="stat-card">
+        <h4>Tiến độ trung bình</h4>
+        <p class="big">52%</p>
+      </div>
+      <div class="stat-card">
+        <h4>Số giờ đã học</h4>
+        <p class="big">38h</p>
+      </div>
+    </div>
+
+    <h3>Khóa học gần đây</h3>
+    <div class="course-grid">
+      <div class="course-card">
+        <h4>Nhập môn Bảo mật thông tin</h4>
+        <div class="progress"><div style="width:9%"></div></div>
+        <p>Hoàn thành: 9%</p>
+      </div>
+      <div class="course-card">
+        <h4>Lập trình Python cơ bản</h4>
+        <div class="progress"><div style="width:67%"></div></div>
+        <p>Hoàn thành: 67%</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANG CHỦ -->
+  <section id="mypage" class="content-section active">
+    <h2>🏠 Trang chủ</h2>
+    <p>Chào mừng bạn quay lại, <strong>Giang Thùy</strong>! 🌸</p>
+    <div class="notice">
+      <h4>Thông báo mới</h4>
+      <ul>
+        <li>📅 Lịch học tuần này đã được cập nhật.</li>
+        <li>📘 Có 1 bài tập mới trong môn “Python cơ bản”.</li>
+        <li>💬 Thầy Minh đã phản hồi câu hỏi của bạn trong Diễn đàn.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LỊCH HỌC -->
+  <section id="schedule" class="content-section">
+    <h2>🗓️ Lịch học</h2>
+    <table class="schedule-table">
+      <tr><th>Ngày</th><th>Môn học</th><th>Giờ học</th><th>Giảng viên</th></tr>
+      <tr><td>Thứ 2</td><td>Python cơ bản</td><td>07:30 - 09:30</td><td>Nguyễn Minh</td></tr>
+      <tr><td>Thứ 4</td><td>Bảo mật thông tin</td><td>09:40 - 11:40</td><td>Trần Anh</td></tr>
+      <tr><td>Thứ 6</td><td>Machine Learning</td><td>13:00 - 15:00</td><td>Lê Huy</td></tr>
+    </table>
+  </section>
+
+  <!-- DANH SÁCH KHÓA HỌC -->
+  <section id="courses" class="content-section">
+    <h2>📚 Danh sách khóa học</h2>
+    <div class="course-list">
+      <div class="course-item">
+        <h4>Nhập môn Bảo mật thông tin</h4>
+        <span>Tiến độ: 9%</span>
+      </div>
+      <div class="course-item">
+        <h4>Lập trình Python cơ bản</h4>
+        <span>Tiến độ: 67%</span>
+      </div>
+      <div class="course-item">
+        <h4>Machine Learning nâng cao</h4>
+        <span>Tiến độ: 42%</span>
+      </div>
+      <div class="course-item">
+        <h4>Phân tích dữ liệu với SQL</h4>
+        <span>Tiến độ: 80%</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL CHI TIẾT KHÓA HỌC -->
+  <section id="courseDetail" class="content-section" style="display:none;">
+    <div class="course-hero">
+      <h1 id="cTitle">—</h1>
+    </div>
+    <div class="course-shell">
+      <div class="section">
+        <h3>🎥 Học online</h3>
+        <div class="card">
+          <div class="hstack">
+            <button class="btn btn-primary" onclick="openMeeting()">Vào phòng học (Meet/Zoom)</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>📚 Slides</h3>
+        <div class="resource-list" id="slideList"></div>
+      </div>
+
+      <div class="section">
+        <h3>📝 Bài tập</h3>
+        <div class="resource-list" id="exerciseList"></div>
+      </div>
+  </section>
+
+  <!-- PANEL NỘP BÀI -->
+  <section id="submitPanel" class="content-section" style="display:none;">
+    <div class="course-hero">
+      <h1 id="exerciseTitle">📝 Nộp bài tập</h1>
+    </div>
+
+    <div class="card" style="max-width:720px; margin:auto;">
+      <div class="field field--full">
+        <label><strong>Nội dung bài tập</strong></label>
+        <div id="exerciseDesc">—</div>
+      </div>
+
+      <div class="field field--full">
+        <label><strong>Trạng thái nộp bài</strong></label>
+        <p><strong>Trạng thái nộp bài:</strong> <span id="submissionStatus">—</span></p>
+        <p><strong>Điểm:</strong> <span id="gradingStatus">—</span></p>
+        <p><strong>Ngày đến hạn:</strong> <span id="dueDate">—</span></p>
+        <p><strong>Thời gian còn lại:</strong> <span id="timeRemaining">—</span></p>
+        <p><strong>Chỉnh sửa lần cuối:</strong> <span id="lastModified">-</span></p>
+      </div>
+
+      <div class="field field--full">
+        <label><strong>File nộp bài</strong></label>
+        <input type="file" id="submitFile" />
+      </div>
+
+      <div class="field field--full">
+        <label><strong>Ghi chú</strong></label>
+        <textarea id="commentBox" placeholder="Thêm ghi chú..."></textarea>
+        <button class="saveNote-btn" id="saveCommentBtn" title="Lưu ghi chú" onclick="saveComment()">Lưu</button>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-ghost" onclick="backToCourseDetail()">Quay lại khóa học</button>
+        <button class="btn-primary" onclick="submitHomeworkPanel()">Nộp bài</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL QUẢN LÝ THÔNG TIN -->
+  <section id="infoPanel" class="content-section" style="display:none;">
+    <div class="course-hero">
+      <h1>Cập nhật thông tin cá nhân</h1>
+    </div>
+
+    <div class="card" style="max-width:720px; margin:auto;">
+      <h3 style="color:var(--brand); margin-bottom:14px;">Thông tin của Cao Thùy Giang</h3>
+
+      <form class="form-grid">
+
+        <!-- MÃ HỌC VIÊN -->
+        <div class="field field--full">
+          <label>Mã học viên</label>
+          <div class="row" style="justify-content: space-between; align-items: center;">
+            <input type="text" value="52200138" disabled style="flex:1;" />
+          </div>
+        </div>
+
+        <!-- HỌ VÀ TÊN -->
+        <div class="field field--full">
+          <label>Họ và tên *</label>
+          <div class="row" style="justify-content: space-between; align-items: center;">
+            <input type="text" value="Cao Thùy Giang" style="flex:1;" />
+          </div>
+        </div>
+
+        <!-- BẠN LÀ -->
+        <div class="field">
+          <label>Bạn là</label>
+          <div class="row" style="justify-content: space-between; align-items: center;">
+            <select class="option">
+              <option>Học sinh</option>
+              <option selected>Sinh viên</option>
+              <option>Phụ huynh</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- GIỚI TÍNH -->
+        <div class="field">
+          <label>Giới tính</label>
+          <div class="row" style="justify-content: space-between; align-items: center;">
+            <select class="option">
+              <option selected>Nữ</option>
+              <option>Nam</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- NGÀY SINH -->
+        <div class="field">
+          <label>Ngày sinh</label>
+          <div class="option" style="justify-content: space-between; align-items: center;">
+            <div class="row" style="flex:1; gap:8px;">
+              <!-- Ngày -->
+              <select>
+                <option disabled>Ngày</option>
+                <option>01</option><option>02</option><option>03</option><option>04</option><option>05</option>
+                <option>06</option><option>07</option><option selected>08</option><option>09</option><option>10</option>
+                <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+                <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+                <option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+                <option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option>
+              </select>
+
+              <!-- Tháng -->
+              <select>
+                <option disabled>Tháng</option>
+                <option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option>
+                <option>07</option><option>08</option><option>09</option><option>10</option><option>11</option><option selected>12</option>
+              </select>
+
+              <!-- Năm -->
+              <select>
+                <option disabled>Năm</option>
+                <option>1960</option><option>1961</option><option>1962</option><option>1963</option><option>1964</option>
+                <option>1965</option><option>1966</option><option>1967</option><option>1968</option><option>1969</option>
+                <option>1970</option><option>1971</option><option>1972</option><option>1973</option><option>1974</option>
+                <option>1975</option><option>1976</option><option>1977</option><option>1978</option><option>1979</option>
+                <option>1980</option><option>1981</option><option>1982</option><option>1983</option><option>1984</option>
+                <option>1985</option><option>1986</option><option>1987</option><option>1988</option><option>1989</option>
+                <option>1990</option><option>1991</option><option>1992</option><option>1993</option><option>1994</option>
+                <option>1995</option><option>1996</option><option>1997</option><option>1998</option><option>1999</option>
+                <option>2000</option><option>2001</option><option>2002</option><option>2003</option><option selected>2004</option>
+                <option>2005</option><option>2006</option><option>2007</option><option>2008</option><option>2009</option>
+                <option>2010</option><option>2011</option><option>2012</option><option>2013</option><option>2014</option>
+                <option>2015</option><option>2016</option><option>2017</option><option>2018</option><option>2019</option>
+                <option>2020</option><option>2021</option><option>2022</option><option>2023</option><option>2024</option><option>2025</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="field field--full">
+          <label>Email</label>
+          <div class="row" style="justify-content: space-between; align-items: center;">
+            <input type="email" value="caothuygiang@gmail.com" style="flex:1;" />
+          </div>
+        </div>
+
+        <!-- SỐ ĐIỆN THOẠI -->
+        <div class="option">
+          <label>Số điện thoại</label>
+          <div class="row" style="justify-content: space-between; align-items: center;">
+            <input type="tel" value="0987654321" style="flex:1;" />
+          </div>
+        </div>
+
+        <!-- NGÀY ĐĂNG KÝ -->
+        <div class="field field--full">
+          <label>Ngày đăng ký</label>
+          <div class="row" style="justify-content: space-between; align-items: center;">
+            <input type="text" value="12/03/2024" disabled style="flex:1;" />
+          </div>
+        </div>
+
+      </form>
+
+      <div class="modal-actions">       
+        <button class="btn-ghost" onclick="backToHome()">Quay lại</button>
+        <button class="btn-primary" style="min-width:140px;" onclick="saveUserInfo()">Lưu thay đổi</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL LỊCH SỬ THANH TOÁN -->
+  <section id="paymentHistoryPanel" class="content-section" style="display:none;">
+    <div class="course-hero">
+      <h1>💳 Lịch sử thanh toán</h1>
+    </div>
+
+    <div class="card" style="max-width:800px; margin:auto;">
+      <div class="balance-box">
+        <p><strong>Tài khoản chính:</strong> <span id="mainBalance" style="color:green;">350,000đ</span></p>
+        <p><strong>Tài khoản khuyến mãi:</strong> <span id="bonusBalance" style="color:blue;">50,000đ</span></p>
+      </div>
+
+      <h3 style="margin-top:20px;">📜 Lịch sử nạp tiền</h3>
+      <table class="payment-table">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Thời gian</th>
+            <th>Số tiền</th>
+            <th>Hình thức nạp</th>
+          </tr>
+        </thead>
+        <tbody id="paymentTableBody"></tbody>
+      </table>
+
+      <div class="modal-actions" style="margin-top:20px;">
+        <button class="btn-ghost" onclick="backToHome()">Quay lại</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+  </div>
+  </main>
+
+  <footer class="footer">
+    <p>
+    Copyright © 2025 Online Tutor. Developed by
+      <button class="invisible-btn">Group 09, TDTU</button>.<br />
+    Reproduction or distribution without permission is prohibited.</p>
+  </footer>
+
+
+<script>
+window.onload = function () {
+  let currentExercise = null;
+  const courseData = {
+    "Nhập môn Bảo mật thông tin": [
+      { buoi: "Buổi 1", chuDe: "Tổng quan an ninh mạng", taiLieu: "baomat-buoi1.pdf", baiTap: "bt-buoi1.docx" },
+      { buoi: "Buổi 2", chuDe: "Mã hóa cơ bản", taiLieu: "mahoa-buoi2.pdf", baiTap: "bt-buoi2.docx" },
+      { buoi: "Buổi 3", chuDe: "Tường lửa & IDS", taiLieu: "firewall-buoi3.pdf", baiTap: "bt-buoi3.docx" }
+    ],
+    "Lập trình Python cơ bản": [
+      { buoi: "Buổi 1", chuDe: "Biến & Kiểu dữ liệu", taiLieu: "python-buoi1.pdf", baiTap: "bt-python1.zip" },
+      { buoi: "Buổi 2", chuDe: "Vòng lặp & Điều kiện", taiLieu: "python-buoi2.pdf", baiTap: "bt-python2.zip" },
+      { buoi: "Buổi 3", chuDe: "Hàm & Thư viện", taiLieu: "python-buoi3.pdf", baiTap: "bt-python3.zip" }
+    ],
+    "Machine Learning nâng cao": [
+      { buoi: "Buổi 1", chuDe: "Regression nâng cao", taiLieu: "ml-advance1.pdf", baiTap: "ml-bt1.ipynb" },
+      { buoi: "Buổi 2", chuDe: "Clustering nâng cao", taiLieu: "ml-advance2.pdf", baiTap: "ml-bt2.ipynb" }
+    ],
+    "Phân tích dữ liệu với SQL": [
+      { buoi: "Buổi 1", chuDe: "SELECT nâng cao", taiLieu: "sql1.pdf", baiTap: "sql-bt1.sql" },
+      { buoi: "Buổi 2", chuDe: "JOIN tối ưu", taiLieu: "sql2.pdf", baiTap: "sql-bt2.sql" }
+    ]
+  };
+
+  const slideFiles = [
+    { title: "01 - Introduction to ML-2023", file: "slide1.pdf", done: false },
+    { title: "02 - Principle of Machine Learning", file: "slide2.pdf", done: false },
+    { title: "03 - K-Nearest-Neighbors algorithm", file: "slide3.pdf", done: false },
+    { title: "04 - naive_bayes_classification", file: "slide4.pdf", done: false },
+    { title: "05 - Decision tree", file: "slide5.pdf", done: false },
+    { title: "06 - Perceptron and Logistic Regression", file: "slide6.pdf", done: false },
+    { title: "07 - Neural Networks and Backpropagation Algorithm", file: "slide7.pdf", done: false }
+  ];
+
+  const exerciseFiles = [
+    { title: "Ex 01 – kNN & Bayes", file: "ex1.zip", deadline: "2025-11-18 23:59", submitted: false },
+    { title: "Ex 02 – Practice set", file: "ex2.zip", deadline: "2025-11-22 23:59", submitted: false },
+    { title: "Ex 03 – Decision Tree – Regression", file: "ex3.zip", submitted: false },
+    { title: "Ex 04 – Perceptron + ANN", file: "ex4.zip", deadline: "2025-11-15 23:59", submitted: false }
+  ];
+
+  const paymentHistory = [
+    { time: "2025-10-02 14:23", amount: "200,000đ", method: "Momo" },
+    { time: "2025-09-15 09:12", amount: "100,000đ", method: "Ngân hàng" },
+    { time: "2025-08-20 20:45", amount: "50,000đ", method: "ZaloPay" },
+  ];
+
+  // ====== SIDEBAR ======
+  const buttons = document.querySelectorAll(".side-nav .side-link");
+  const sections = document.querySelectorAll(".content-section");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.preventDefault();
+
+      // Ẩn toàn bộ section
+      sections.forEach(sec => sec.style.display = "none");
+
+      // Xóa trạng thái active khỏi toàn bộ button
+      buttons.forEach(b => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+
+      // Lấy id từ href (vd: #courses)
+      const id = btn.getAttribute("href").replace("#", "");
+
+      // Hiển thị section tương ứng nếu tồn tại
+      const section = document.getElementById(id);
+      if (section) section.style.display = "block";
+    });
+  });
+
+  // ====== HEADER: KHÓA HỌC CỦA TÔI ======
+  document.querySelector('a[href="#khoa-hoc-cua-toi"]').addEventListener("click", e => {
+    e.preventDefault();
+
+    // Ẩn tất cả section
+    sections.forEach(sec => sec.style.display = "none");
+
+    // Gắn trạng thái active cho sidebar "Khóa học của tôi"
+    buttons.forEach(b => b.classList.remove("is-active"));
+    document.querySelector('.side-nav .side-link[href="#courses"]').classList.add("is-active");
+
+    // Hiển thị lại panel khóa học
+    document.getElementById("courses").style.display = "block";
+  });
+
+
+  // ====== RENDER KHOÁ HỌC ======
+  document.querySelectorAll("#courses .course-item").forEach(item => {
+    item.addEventListener("click", function () {
+      const title = this.querySelector("h4").innerText;
+      document.getElementById("cTitle").innerText = title;
+      currentCourse = title;
+      const sessions = courseData[title];
+      const slideList = document.getElementById("slideList");
+      const exerciseList = document.getElementById("exerciseList");
+      slideList.innerHTML = "";
+      exerciseList.innerHTML = "";
+
+      sessions.forEach((s, i) => {
+        slideList.innerHTML += `
+          <div class="resource-item">
+            <div class="left">
+              <a href="${s.taiLieu}" target="_blank">${s.buoi} – ${s.chuDe}</a>
+            </div>
+          </div>`;
+        exerciseList.innerHTML += `
+          <div class="resource-item">
+            <div class="left">
+              <a href="#" onclick="openSubmitPanel('${title}', ${i}); return false;">${s.baiTap}</a>
+            </div>
+            <div class="right">
+              ${s.submitted 
+                ? `<span class="submitted-tag">✅ Đã nộp</span>` 
+                : `<span class="pending-tag">⏳ Chưa nộp</span>`}
+            </div>
+          </div>`;
+      });
+      sections.forEach(sec => sec.classList.remove("active"));
+      document.getElementById("courses").style.display = "none";
+      document.getElementById("courseDetail").style.display = "block";
+    });
+  });
+
+  // ====== PANEL NỘP BÀI ======
+  window.openSubmitPanel = function (courseTitle, index) {
+    currentExercise = index;
+    currentCourse = courseTitle;
+    const exercise = exerciseFiles[index];
+    if (!exercise) return;
+
+    document.getElementById("exerciseTitle").innerText = exercise.title || "Nộp bài tập";
+    document.getElementById("dueDate").innerText = exercise.deadline || "Không quy định";
+    document.getElementById("lastModified").innerText = exercise.lastModified || "-";
+
+    document.getElementById("submissionStatus").innerText = exercise.submitted ? "✅ Đã nộp bài" : "⏳ Chưa nộp bài";
+    document.getElementById("gradingStatus").innerText = exercise.graded ? "🟢 Đã chấm" : "❌ Chưa chấm";
+
+    // Tính thời gian
+    const timeRemaining = document.getElementById("timeRemaining");
+    if (exercise.deadline) {
+      const now = new Date();
+      const deadline = new Date(exercise.deadline.replace(" ", "T"));
+      const diff = deadline - now;
+      if (diff > 0) {
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        timeRemaining.innerText = `⏰ Còn ${d} ngày ${h} giờ`;
+        timeRemaining.style.color = "var(--brand)";
+      } else {
+        const overdue = Math.abs(diff);
+        const d = Math.floor(overdue / (1000 * 60 * 60 * 24));
+        const h = Math.floor((overdue / (1000 * 60 * 60)) % 24);
+        timeRemaining.innerText = `🔴 Trễ ${d} ngày ${h} giờ`;
+        timeRemaining.style.color = "crimson";
+      }
+    }
+
+    document.getElementById("commentBox").value = localStorage.getItem(`comment_${index}`) || "";
+    document.getElementById("courseDetail").style.display = "none";
+    document.getElementById("submitPanel").style.display = "block";
+  };
+
+  // ====== NỘP BÀI ======
+  window.submitHomeworkPanel = function () {
+    const file = document.getElementById("submitFile").files[0];
+    if (!file) return alert("⚠️ Bạn chưa chọn file để nộp!");
+    if (currentExercise === null || !currentCourse) return;
+
+    const ex = courseData[currentCourse][currentExercise];
+    ex.submitted = true;
+    ex.lastModified = new Date().toLocaleString();
+
+    // Cập nhật panel nộp bài
+    document.getElementById("submissionStatus").innerText = "✅ Đã nộp bài";
+    document.getElementById("lastModified").innerText = ex.lastModified;
+
+    alert("🎉 Nộp bài thành công!");
+
+    // Sau 1s quay lại chi tiết khóa học và hiển thị ✅
+    setTimeout(() => {
+      document.getElementById("submitPanel").style.display = "none";
+      document.getElementById("courseDetail").style.display = "block";
+
+      // Render lại danh sách bài tập cho khóa hiện tại
+      const sessions = courseData[currentCourse];
+      const exerciseList = document.getElementById("exerciseList");
+      exerciseList.innerHTML = "";
+      sessions.forEach((s, i) => {
+        exerciseList.innerHTML += `
+          <div class="resource-item">
+            <div class="left">
+              <a href="#" onclick="openSubmitPanel('${currentCourse}', ${i}); return false;">${s.baiTap}</a>
+            </div>
+            <div class="right">
+              ${s.submitted
+                ? `<span class="submitted-tag">✅ Đã nộp</span>`
+                : `<span class="pending-tag">⏳ Chưa nộp</span>`}
+            </div>
+          </div>`;
+      });
+    }, 1000);
+  };
+
+
+
+  // ====== LƯU GHI CHÚ ======
+  window.saveComment = function () {
+    const comment = document.getElementById("commentBox").value.trim();
+    if (!comment) return alert("⚠️ Bạn chưa nhập ghi chú nào để lưu!");
+    if (currentExercise !== null) localStorage.setItem(`comment_${currentExercise}`, comment);
+    alert("💬 Ghi chú đã được lưu!");
+  };
+
+  window.backToCourseDetail = function () {
+    document.getElementById("submitPanel").style.display = "none";
+    document.getElementById("courseDetail").style.display = "block";
+  };
+
+    // ====== QUẢN LÝ THÔNG TIN ======
+  document.querySelector('a[href="#thong-tin"]').addEventListener("click", e => {
+    e.preventDefault();
+
+    // Ẩn các section khác
+    document.querySelectorAll(".content-section").forEach(sec => {
+      sec.classList.remove("active");
+      sec.style.display = "none";
+    });
+
+    // Hiện panel thông tin cá nhân
+    const infoPanel = document.getElementById("infoPanel");
+    infoPanel.style.display = "block";
+    infoPanel.classList.add("active");
+  });
+
+  // ====== LỊCH SỬ THANH TOÁN ======
+  document.querySelector('a[href="#lich-su-thanh-toan"]').addEventListener("click", e => {
+    e.preventDefault();
+
+    // Ẩn tất cả các section khác
+    document.querySelectorAll(".content-section").forEach(sec => {
+      sec.classList.remove("active");
+      sec.style.display = "none";
+    });
+
+    // Hiện panel lịch sử thanh toán
+    const panel = document.getElementById("paymentHistoryPanel");
+    panel.style.display = "block";
+    panel.classList.add("active");
+
+    renderPaymentHistory();
+  });
+
+  // ====== HÀM RENDER BẢNG THANH TOÁN ======
+  function renderPaymentHistory() {
+    const body = document.getElementById("paymentTableBody");
+    if (!body) return;
+
+    body.innerHTML = "";
+    paymentHistory.forEach((p, i) => {
+      body.innerHTML += `
+        <tr>
+          <td>${i + 1}</td>
+          <td>${p.time}</td>
+          <td>${p.amount}</td>
+          <td>${p.method}</td>
+        </tr>`;
+    });
+  }
+
+  // ====== NÚT QUAY LẠI ======
+  window.backToHome = function () {
+    document.querySelectorAll(".content-section").forEach(sec => {
+      sec.classList.remove("active");
+      sec.style.display = "none";
+    });
+
+    const home = document.getElementById("mypage");
+    home.style.display = "block";
+    home.classList.add("active");
+
+    // Nếu sidebar có "Trang chủ", đánh dấu lại
+    document.querySelectorAll(".side-link").forEach(btn => btn.classList.remove("is-active"));
+    const homeBtn = document.querySelector('.side-link[href="#mypage"]');
+    if (homeBtn) homeBtn.classList.add("is-active");
+  };
+
+    // ====== LƯU THAY ĐỔI THÔNG TIN CÁ NHÂN ======
+  window.saveUserInfo = function () {
+    // Lấy dữ liệu người dùng nhập
+    const name = document.querySelector('#infoPanel input[type="text"]:not([disabled])').value.trim();
+    const email = document.querySelector('#infoPanel input[type="email"]').value.trim();
+    const phone = document.querySelector('#infoPanel input[type="tel"]').value.trim();
+    const role = document.querySelector('#infoPanel select').value;
+
+    // Kiểm tra dữ liệu cơ bản
+    if (!name || !email || !phone) {
+      alert("Vui lòng điền đầy đủ thông tin trước khi lưu!");
+      return;
+    }
+
+    // Lưu thông tin tạm trong localStorage (giống như backend giả lập)
+    const updatedInfo = { name, email, phone, role };
+    localStorage.setItem("userInfo", JSON.stringify(updatedInfo));
+
+    // Hiển thị thông báo
+    alert("Thông tin đã được cập nhật thành công!");
+
+    // Quay lại trang chủ
+    document.querySelectorAll(".content-section").forEach(sec => sec.classList.remove("active"));
+    document.getElementById("mypage").classList.add("active");
+  };
+
+  // Khi bấm “Quản lý thông tin” trong menu → hiển thị panel thông tin
+  document.querySelector('a[href="#thong-tin"]').addEventListener("click", e => {
+    e.preventDefault();
+    document.querySelectorAll(".content-section").forEach(sec => sec.classList.remove("active"));
+    document.getElementById("infoPanel").classList.add("active");
+  });
+
+};
+</script>
+
+</body>
+</html>

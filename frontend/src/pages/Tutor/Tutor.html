@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trang Gia sư – Tutor</title>
+  <link rel="stylesheet" href="./Tutor.css" />
+
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#">
+        <img class="brand-logo" src="../../assets/images/Logo_Group.png" alt="G&3N Logo" />
+        <span>GIASUNO1</span>
+      </a>
+
+      <nav>
+        <div class="nav">
+          <a href="#home">Trang chủ</a>
+          <a href="#schedule">Lịch dạy</a>
+          <a href="#profile">Hồ sơ</a>
+          <a href="#requests">Nộp đơn</a>
+        </div>
+      </nav>
+
+      <!-- Menu tài khoản HR -->
+      <details class="user-mini" aria-label="Tùy chọn tài khoản">
+        <summary class="avatar-btn" aria-haspopup="menu" aria-expanded="false">
+          <div class="avatar" id="avatar">GS</div>
+          <div class="u-meta">
+            <div class="nm" id="hrName">Gia sư</div>
+            <div class="uid">Toán</div>
+          </div>
+          <svg class="chev" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </summary>
+
+        <div class="user-popover" role="menu">
+          <a role="menuitem" href="#profile" class="mi">
+            <svg class="mi-ico" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-8 2.24-8 5v1h16v-1c0-2.76-3.6-5-8-5Z" fill="currentColor"/>
+            </svg>
+            Quản lý tài khoản
+          </a>
+
+          <a role="menuitem" href="#change-pass" class="mi">
+            <svg class="mi-ico" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M17 8V6a5 5 0 0 0-10 0v2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-2Zm-8 0V6a3 3 0 0 1 6 0v2H9Z" fill="currentColor"/>
+            </svg>
+            Đổi mật khẩu
+          </a>
+
+          <a role="menuitem" href="#support" class="mi">
+            <svg class="mi-ico" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2a10 10 0 1 0 6.32 17.94L22 22l-2.06-3.68A10 10 0 0 0 12 2Zm1 15h-2v-2h2v2Zm2.07-7.75-.9.92A3.5 3.5 0 0 0 13.5 12h-2v-.5c0-.83.67-1.5 1.5-1.5a1.5 1.5 0 1 0-1.5-1.5H9a3 3 0 1 1 6 0c0 .66-.26 1.3-.93 2.25Z" fill="currentColor"/>
+            </svg>
+            Trung tâm hỗ trợ
+          </a>
+
+          <hr class="menu-divider" />
+
+          <button role="menuitem" type="button" class="mi link-danger" id="btnLogout">
+            <svg class="mi-ico" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M10 17v2H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h6v2H5v10h5Zm9.59-5-3-3L17 7l5 5-5 5-1.41-2 3-3H11v-2h8.59Z" fill="currentColor"/>
+            </svg>
+            Đăng xuất
+          </button>
+        </div>
+      </details>
+    </div>
+  </header>
+
+  <div class="shell">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="user-mini" style="margin-bottom:8px">
+        <div class="avatar" id="avatar2">GS</div>
+        <div>
+          <div class="nm" id="tutorName2">Gia Sư</div>
+          <div class="uid" id="tutorRank">Hạng: Gold</div>
+        </div>
+      </div>
+      <nav class="side-nav">
+        <a class="side-link is-active" href="#home">
+          <svg viewBox="0 0 24 24"><path d="M4 10L12 4l8 6v8a2 2 0 0 1-2 2h-4v-6H10v6H6a2 2 0 0 1-2-2z" fill="currentColor"/></svg>Trang chủ
+        </a>
+
+        <a class="side-link" href="#dashboard">
+          <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" fill="currentColor"/></svg>Dashboard
+        </a>
+        <a class="side-link" href="#schedule">
+          <svg viewBox="0 0 24 24"><path d="M7 2v2H5a2 2 0 0 0-2 2v2h18V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zm14 8H3v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V10z" fill="currentColor"/></svg>Lịch dạy
+        </a>
+
+        <a class="side-link" href="#teaching-courses">
+          <svg viewBox="0 0 24 24"><path d="M4 19h16V5H4v14Zm2-2V7h12v10H6Zm3-2h6v-2H9v2Z" fill="currentColor"/></svg>Khóa đang dạy
+        </a>
+
+        <a class="side-link" href="#register-classes">
+          <svg viewBox="0 0 24 24"><path d="M12 2 1 7l11 5 9-4.09V17h2V7L12 2Z" fill="currentColor"/></svg>Đăng ký lớp
+        </a>
+        <a class="side-link" href="#payroll">
+          <svg viewBox="0 0 24 24"><path d="M4 6h16a2 2 0 0 1 2 2v8H2V8a2 2 0 0 1 2-2Zm0 12h16v2H4v-2Zm8-9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" fill="currentColor"/></svg>Nhận lương
+        </a>
+        <a class="side-link" href="#profile">
+          <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-8 2.24-8 5v1h16v-1c0-2.76-3.6-5-8-5Z" fill="currentColor"/></svg>Hồ sơ gia sư
+        </a>
+        <a class="side-link" href="#requests">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16v2H4zm0 7h16v2H4zm0 7h16v2H4z" fill="currentColor"/></svg>Nộp đơn
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Nội dung -->
+    <main class="content-area">
+      <!-- Trang chủ -->
+      <section id="home" class="content-section active">
+        <h2>🏠 Trang chủ</h2>
+        <p>Chào mừng quay lại, <strong id="helloName">Gia Sư</strong>! Đây là bảng điều khiển dành cho gia sư.</p>
+        <div class="stats-grid">
+          <div class="stat-card"><h4>Lớp đang dạy</h4><p class="big" id="statTeaching">0</p></div>
+          <div class="stat-card"><h4>Giờ đã dạy (tháng này)</h4><p class="big" id="statHours">0h</p></div>
+          <div class="stat-card"><h4>Lương tạm tính</h4><p class="big" id="statSalary">0₫</p></div>
+        </div>
+        <div class="notice">
+          <h4>Thông báo</h4>
+          <ul id="notices">
+            <li>📅 Lịch dạy tuần đã cập nhật.</li>
+            <li>📥 Có 2 bài nộp mới đang chờ chấm.</li>
+            <li>💳 Kỳ lương tháng này sẽ khóa vào ngày 28.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Dashboard -->
+      <section id="dashboard" class="content-section">
+        <h2>📊 Dashboard</h2>
+        <div class="grid3">
+          <!-- <div class="card soft">
+            <div class="hstack"><span class="status-dot dot-blue"></span><strong>Lớp chờ duyệt</strong></div>
+            <div class="big" id="statPending" style="font-size:24px;font-weight:700;margin-top:6px">0</div>
+            <div class="uid">Các yêu cầu đăng ký lớp đang đợi trung tâm phê duyệt</div>
+          </div> -->
+          <div class="card soft">
+            <div class="hstack"><span class="status-dot dot-amber"></span><strong>Bài chấm</strong></div>
+            <div class="big" id="statGrading" style="font-size:24px;font-weight:700;margin-top:6px">0</div>
+            <div class="uid">Bài tập cần chấm và nhận xét</div>
+          </div>
+          <div class="card soft">
+            <div class="hstack"><span class="status-dot dot-green"></span><strong>Chấm công</strong></div>
+            <div class="big" id="statSessions" style="font-size:24px;font-weight:700;margin-top:6px">0 buổi</div>
+            <div class="uid">Tổng số ca đã chấm công trong tháng</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lịch dạy -->
+      <section id="schedule" class="content-section">
+        <h2>🗓️ Lịch dạy</h2>
+        <table class="table" id="tblSchedule" style="margin-top:10px">
+          <thead><tr><th>Ngày</th><th>Giờ</th><th>Lớp</th><th>Ghi chú</th><th></th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+        <!-- Khóa đang dạy -->
+      <section id="teaching-courses" class="content-section">
+        <h2>📚 Danh sách khóa học đang dạy</h2>
+        <div id="teachingList" class="grid2"></div>
+      </section>
+
+
+
+      <!-- Đăng ký lớp (chưa nhận) -->
+      <section id="register-classes" class="content-section">
+        <h2>📝 Đăng ký lớp dạy (lớp chưa nhận)</h2>
+        <div class="hstack" style="flex-wrap:wrap;margin-bottom:10px">
+          <input class="search" style="flex:1" placeholder="Tìm theo môn/lớp/khu vực..." oninput="filterOpen(this.value)" />
+          <button class="btn btn-ghost" onclick="renderOpenClasses()">Tải lại</button>
+        </div>
+        <div id="openClassList" class="grid2"></div>
+      </section>
+
+      <!-- Chấm công -->
+      <section id="timesheet" class="content-section">
+        <h2>⏱️ Chấm công</h2>
+        <p class="uid">Chấm công</p>
+        <table class="table" id="tblTimesheet">
+          <thead>
+            <tr><th>Giờ</th><th>Lớp</th><th>Hình thức</th><th>Ghi chú</th><th>Hành động</th><th></th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+
+      <!-- Nhận lương -->
+      <section id="payroll" class="content-section">
+        <h2>💳 Nhận lương</h2>
+        <div class="hstack" style="flex-wrap:wrap">
+          <label class="pill-btn">Tháng
+            <input type="month" id="payMonth" style="border:0;margin-left:6px" onchange="renderPayroll()" />
+          </label>
+          <button class="btn btn-ghost" id="btnPayout" onclick="requestPayout()">Yêu cầu thanh toán</button>
+        </div>
+        <table class="table" id="tblPayroll" style="margin-top:10px">
+          <thead><tr><th>Lớp</th><th>Giờ</th><th>Đơn giá (₫/h)</th><th>Thành tiền</th></tr></thead>
+          <tbody></tbody>
+          <tfoot><tr><td colspan="3">Tổng</td><td id="payTotal">0₫</td></tr></tfoot>
+        </table>
+        <p class="uid">Lương tạm tính dựa trên bảng chấm công đã ghi nhận.</p>
+      </section>
+
+      <!-- Hồ sơ gia sư -->
+      <section id="profile" class="content-section">
+        <h2>👤 Thông tin gia sư</h2>
+        <div class="grid2">
+          <div class="card soft">
+            <div class="stack">
+              <label class="field">Họ tên<input id="pfName" type="text" placeholder="Họ tên"/></label>
+              <label class="field">Email<input id="pfEmail" type="text" placeholder="Email"/></label>
+              <label class="field">SĐT<input id="pfPhone" type="tel" placeholder="Số điện thoại"/></label>
+              <label class="field">Chuyên môn<input id="pfMajor" type="text" placeholder="VD: Toán, Lý, Hóa"/></label>
+              <label class="field">Cấp độ<input id="pfLevel" type="text" placeholder="VD: THCS, THPT"/></label>
+              <label class="field">Giới thiệu<textarea id="pfBio" rows="4" placeholder="Đôi lời giới thiệu..."></textarea></label>
+              <div class="hstack" style="flex-wrap:wrap">
+                <button class="btn btn-primary" onclick="saveProfile()">Lưu hồ sơ</button>
+                <button class="btn btn-ghost" onclick="loadProfile()">Tải lại</button>
+              </div>
+            </div>
+          </div>
+          <div class="card soft">
+            <strong>Hồ sơ công khai</strong>
+            <p class="uid">Học viên/Phụ huynh nhìn thấy:</p>
+            <ul>
+              <li>Tên: <span id="pubName">—</span></li>
+              <li>Chuyên môn: <span id="pubMajor">—</span></li>
+              <li>Cấp độ: <span id="pubLevel">—</span></li>
+              <li>Giới thiệu: <span id="pubBio">—</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Nộp đơn -->
+      <section id="requests" class="content-section">
+        <h2>📮 Nộp đơn</h2>
+        <div class="grid2">
+          <div class="card soft">
+            <div class="stack">
+              <label class="field">Loại đơn
+                <select id="rqType">
+                  <option value="change">Xin đổi lịch dạy</option>
+                  <option value="leave">Xin nghỉ dạy tạm thời</option>
+                  <option value="resign">Nghỉ việc</option>
+                </select>
+              </label>
+              <label class="field">Áp dụng cho lớp
+                <select id="rqCourse"></select>
+              </label>
+              <div class="grid2">
+                <label class="field">Từ ngày<input id="rqFrom" type="date" /></label>
+                <label class="field">Đến ngày<input id="rqTo" type="date" /></label>
+              </div>
+              <label class="field">Lý do<textarea id="rqReason" rows="4" placeholder="Trình bày lý do..."></textarea></label>
+              <div class="hstack" style="flex-wrap:wrap">
+                <button class="btn btn-primary" onclick="submitRequest()">Gửi đơn</button>
+                <button class="btn btn-ghost" onclick="clearRequestForm()">Xóa</button>
+              </div>
+            </div>
+          </div>
+          <div class="card soft">
+            <strong>Đơn đã gửi</strong>
+            <div id="rqList" class="stack" style="margin-top:8px"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+
+
+
+
+  <footer class="footer">
+    <p>Copyright © 2025 Online Tutor. Developed by <button class="invisible-btn">Group 09, TDTU</button>.</p>
+  </footer>
+
+  <script>
+    // ================== STATE & DEMO DATA ==================
+    const LS_KEY = 'tutorApp.v1';
+    const money = n => (n||0).toLocaleString('vi-VN') + '₫';
+
+    const DefaultApp = {
+      profile: { name: 'Gia Sư', email: 'tutor@example.com', phone: '0901234567', major: 'Toán', level: 'THPT', bio: '5 năm kinh nghiệm luyện thi THPTQG.' },
+   
+    openClasses: [
+        { id: 'O301', name: 'Hóa 12 Luyện đề', schedule: 'T3-T5 19:00-20:30', status: 'open' },
+        { id: 'O302', name: 'Toán 9 Bổ trợ', schedule: 'T2-T6 10:10-11:30', status: 'open' },
+        { id: 'O303', name: 'Tiếng Anh 6 Giao tiếp', schedule: 'T4 20:00-21:30', status: 'open' }
+    ],
+
+    pending: [],
+
+    schedule: [
+        { date: '2025-11-04', time: '10:10-11:30', courseId: 'C202', note: 'Demo chấm công 10:10' },
+        { date: '2025-11-04', time: '19:00-20:30', courseId: 'C101', note: '' },
+        { date: '2025-11-06', time: '10:10-11:30', courseId: 'C202', note: 'Phòng B203' }
+    ],
+
+    timesheet: [
+        { date: '2025-11-03', courseId: 'C101', start: '19:00', end: '20:30', hours: 1.5 },
+        { date: '2025-11-01', courseId: 'C202', start: '17:00', end: '18:30', hours: 1.5 }
+    ],
+
+    requests: []
+    };
+
+    function load(){
+      const raw = localStorage.getItem(LS_KEY);
+      if(raw){ try { return JSON.parse(raw); } catch(e){ console.warn(e) } }
+      return DefaultApp;
+    }
+    function save(){ localStorage.setItem(LS_KEY, JSON.stringify(state)); }
+    let state = load();
+
+
+    // ================== NAV & INIT ==================
+    const sideLinks = document.querySelectorAll('.side-nav .side-link');
+    const sections = document.querySelectorAll('.content-section');
+    sideLinks.forEach(a=>a.addEventListener('click', e=>{
+      e.preventDefault();
+      sideLinks.forEach(x=>x.classList.remove('is-active'));
+      a.classList.add('is-active');
+      const id = a.getAttribute('href').replace('#','');
+      sections.forEach(s=>s.classList.remove('active'));
+      document.getElementById(id)?.classList.add('active');
+      // Lazy render per tab
+      if(id==='register-classes') { renderOpenClasses(); }
+      if(id==='schedule') renderSchedule();
+      if(id==='payroll') renderPayroll();
+      if(id==='profile') loadProfile();
+      if(id==='requests') { fillRqCourses(); renderRequests(); }
+      if(id==='dashboard') refreshStats();
+      if(id==='home') refreshHome();
+    }));
+
+    // Header quick nav
+    document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',e=>{
+      e.preventDefault();
+      const target = a.getAttribute('href');
+      const side = Array.from(sideLinks).find(x=>x.getAttribute('href')===target);
+      side?.click();
+    }));
+
+    // ================== HOME & DASHBOARD ==================
+    function initials(name){
+      if(!name) return 'GS';
+      const parts = name.trim().split(/\s+/);
+      return ((parts[0]?.[0]||'G') + (parts.slice(-1)[0]?.[0]||'S')).toUpperCase();
+    }
+    function totalHoursInMonth(yyyymm){
+      const [y,m] = yyyymm.split('-').map(Number);
+      return state.timesheet.filter(r=>{
+        const d = new Date(r.date); return d.getFullYear()===y && (d.getMonth()+1)===m && r.hours>0;
+      }).reduce((a,b)=>a+b.hours,0);
+    }
+    function salaryInMonth(yyyymm){
+      const [y,m]=yyyymm.split('-').map(Number);
+      let total=0;
+      // Removed teaching data dependency
+      return total;
+    }
+    function refreshHome(){
+      document.getElementById('helloName').textContent = state.profile.name || 'Gia sư';
+      // document.getElementById('statTeaching').textContent = 0;
+      const ym = new Date().toISOString().slice(0,7);
+      document.getElementById('statHours').textContent = (totalHoursInMonth(ym)).toFixed(1)+'h';
+      document.getElementById('statSalary').textContent = money(salaryInMonth(ym));
+    }
+    function refreshStats(){
+      // document.getElementById('statPending').textContent = 0;
+      // const grading = 0;
+      // document.getElementById('statGrading').textContent = grading;
+      const ym = new Date().toISOString().slice(0,7);
+      const sessions = state.timesheet.filter(r=> r.hours>0 && r.date.startsWith(ym)).length;
+      document.getElementById('statSessions').textContent = sessions+ ' buổi';
+    }
+
+
+    // ================== OPEN CLASSES (REGISTER) ==================
+
+        function renderOpenClasses(list) {
+        const wrap = document.getElementById('openClassList');
+        wrap.innerHTML = '';
+
+        (list || state.openClasses)
+            .filter(c => c.status === 'open')
+            .forEach(c => {
+            const el = document.createElement('div');
+            el.className = 'course-card';
+            el.innerHTML = `
+                <div class="course-head">
+                <div>
+                    <strong>${c.name}</strong>
+                    <div class="uid">Lịch học: ${c.schedule}</div>
+                </div>
+                </div>
+                <div class="course-actions">
+                <button class="btn btn-primary" onclick="applyClass('${c.id}')">Đăng ký</button>
+                <button class="btn btn-ghost" onclick="cancelClass('${c.id}')">Hủy đăng ký</button>
+                </div>`;
+            wrap.appendChild(el);
+            });
+        }
+
+        function applyClass(id) {
+        const c = state.openClasses.find(x => x.id === id);
+        if (!c) return;
+
+        alert(`✅ Đã gửi đăng ký lớp ${c.name}. Vui lòng chờ xác nhận.`);
+        }
+
+        function cancelClass(id) {
+        const c = state.openClasses.find(x => x.id === id);
+        if (!c) return;
+
+        if (confirm(`Bạn có chắc muốn hủy đăng ký lớp ${c.name}?`)) {
+            alert(`❌ Đã hủy đăng ký lớp ${c.name}.`);
+        }
+        }
+
+        function filterOpen(q) {
+        q = (q || '').trim().toLowerCase();
+        if (!q) {
+            renderOpenClasses();
+            return;
+        }
+        const list = state.openClasses.filter(
+            c =>
+            (c.name + ' ' + c.area + ' ' + c.schedule)
+                .toLowerCase()
+                .includes(q) && c.status === 'open'
+        );
+        renderOpenClasses(list);
+        }
+
+      // ================== PAYROLL ==================
+      function renderPayroll(){
+        const month = document.getElementById('payMonth')?.value || new Date().toISOString().slice(0,7);
+        const tb = document.querySelector('#tblPayroll tbody');
+        const btn = document.getElementById('btnPayout');
+        const note = document.getElementById('payNote');
+        if (!tb) return;
+        tb.innerHTML='';
+
+        let total = 0;
+        let rows = 0;
+
+        // No mock data
+
+        // Tổng
+        const payTotalEl = document.getElementById('payTotal');
+        if (payTotalEl) {
+          payTotalEl.textContent = money(total);
+        }
+
+        if(rows === 0){
+          // Không có dữ liệu lương
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td colspan="4" class="uid">⚠️ Không có lương trong tháng này.</td>`;
+          tb.appendChild(tr);
+
+          if(btn){
+            btn.disabled = true;
+            btn.title = 'Không có dữ liệu lương để gửi yêu cầu';
+          }
+          if(note){
+            note.textContent = 'Chưa có giờ chấm công trong tháng được chọn.';
+          }
+        } else {
+          if(btn){
+            btn.disabled = false;
+            btn.title = '';
+          }
+          if(note){
+            note.textContent = 'Lương tạm tính dựa trên bảng chấm công đã ghi nhận.';
+          }
+        }
+
+        refreshHome();
+      }
+
+      function requestPayout(){
+        const btn = document.getElementById('btnPayout');
+        if(btn && btn.disabled){
+          alert('Chưa có dữ liệu lương trong tháng này.');
+          return;
+        }
+        alert('Đã gửi yêu cầu thanh toán kỳ này.');
+      }
+
+      // ================== PROFILE ==================
+      function loadProfile() {
+        const p = state.profile || {};
+        // Gán lại dữ liệu form
+        pfName.value = p.name || '';
+        pfEmail.value = p.email || '';
+        pfPhone.value = p.phone || '';
+        pfMajor.value = p.major || '';
+        pfLevel.value = p.level || '';
+        pfBio.value = p.bio || '';
+
+        // Cập nhật hiển thị ở phần chào
+        document.getElementById('helloName').textContent = p.name || 'Gia sư';
+        document.getElementById('tutorName2').textContent = p.name || 'Gia sư';
+        document.getElementById('avatar').textContent = initials(p.name);
+        document.getElementById('avatar2').textContent = initials(p.name);
+
+        // Cập nhật phần hồ sơ công khai
+        document.getElementById('pubName').textContent = p.name?.trim() || '—';
+        document.getElementById('pubMajor').textContent = p.major?.trim() || '—';
+        document.getElementById('pubLevel').textContent = p.level?.trim() || '—';
+        document.getElementById('pubBio').textContent = p.bio?.trim() || '—';
+      }
+
+      function saveProfile(){
+        state.profile = { 
+          name: pfName.value, 
+          email: pfEmail.value, 
+          phone: pfPhone.value, 
+          major: pfMajor.value, 
+          level: pfLevel.value,
+          bio: pfBio.value 
+        };
+        save(); loadProfile(); alert('Đã lưu hồ sơ.');
+    }
+
+    // ================== REQUESTS ==================
+    function fillRqCourses(){
+      // const sel = document.getElementById('rqCourse'); sel.innerHTML='';
+      // state.teaching.forEach(c=>{ const op=document.createElement('option'); op.value=c.id; op.textContent=c.name; sel.appendChild(op); });
+    }
+    function submitRequest(){
+      const r = { type: rqType.value, courseId: rqCourse.value, from: rqFrom.value, to: rqTo.value, reason: rqReason.value, ts: Date.now(), status: 'waiting' };
+      state.requests.unshift(r); save(); renderRequests(); clearRequestForm(); alert('Đã gửi đơn. Vui lòng đợi duyệt.');
+    }
+    function clearRequestForm(){ rqReason.value=''; rqFrom.value=''; rqTo.value=''; }
+    function renderRequests(){
+      const box = document.getElementById('rqList'); box.innerHTML='';
+      const label = t => t==='change'?'Đổi lịch':(t==='leave'?'Nghỉ tạm thời':'Nghỉ việc');
+      state.requests.forEach((r,i)=>{
+        // const c = state.teaching.find(x=>x.id===r.courseId);
+        const row = document.createElement('div'); row.className='file-item';
+        row.innerHTML = `<div>
+            <div><strong>${label(r.type)}</strong> <span class="tag wait">Đang chờ duyệt</span></div>
+            <div class="uid">${r.courseId} • ${r.from||'—'} → ${r.to||'—'} • ${new Date(r.ts).toLocaleString()}</div>
+            <div class="uid">Lý do: ${r.reason||'—'}</div>
+          </div>
+          <button class="btn btn-ghost mini" onclick="delRequest(${i})">Xóa</button>`;
+        box.appendChild(row);
+      });
+    }
+    function delRequest(i){ state.requests.splice(i,1); save(); renderRequests(); }
+
+
+
+    // ================== SCHEDULE ==================
+    function renderSchedule() {
+      const tb = document.querySelector('#tblSchedule tbody');
+      if (!tb) return;
+      tb.innerHTML = '';
+
+      state.schedule.forEach((s, index) => {
+        const tr = document.createElement('tr');
+        // const c = state.teaching.find(x => x.id === s.courseId);
+
+        // Kiểm tra trạng thái hoàn thành (mặc định là false nếu chưa có)
+        if (s.completed === undefined) {
+          s.completed = false;
+        }
+
+        const btnText = s.completed ? 'Hoàn thành' : 'Chưa hoàn thành';
+        const btnClass = s.completed ? 'btn btn-success mini' : 'btn btn-ghost mini';
+
+        tr.innerHTML = `
+          <td>${s.date}</td>
+          <td>${s.time}</td>
+          <td>${s.courseId}</td>
+          <td>${s.note || ''}</td>
+          <td><button class="${btnClass}" onclick="toggleComplete(${index})">${btnText}</button></td>
+        `;
+        tb.appendChild(tr);
+      });
+
+      save();
+    }
+
+    function toggleComplete(index) {
+      state.schedule[index].completed = !state.schedule[index].completed;
+      renderSchedule();
+    }
+
+    // ================== INIT RENDER ==================
+    function bootstrap(){
+      save();
+      refreshHome();
+      renderOpenClasses(); 
+      renderSchedule();
+      const payMonthEl = document.getElementById('payMonth');
+      if (payMonthEl) payMonthEl.value = new Date().toISOString().slice(0,7);
+      renderPayroll();
+      loadProfile();
+      // fillRqCourses(); 
+      // renderRequests();
+    }
+    bootstrap();
+
+
+
+  </script>
+</body>
+</html>

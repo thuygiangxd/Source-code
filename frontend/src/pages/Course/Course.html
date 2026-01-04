@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Chọn lớp & môn học</title>
+  <link rel="stylesheet" href="./Course.css" />
+</head>
+<body>
+<header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#">
+        <img class="brand-logo" src="../../assets/images/Logo_Group.png" alt="G&3N Logo" />
+        <span>GIASUNO1</span>
+      </a>
+      <nav>
+        <div class="nav">
+          <a href="#home">Trang chủ</a>
+          <a href="#support">Hỗ trợ</a>
+        </div>
+      </nav>
+      <!-- Menu tài khoản HR -->
+      <details class="user-mini" aria-label="Tùy chọn tài khoản">
+        <summary class="avatar-btn" aria-haspopup="menu" aria-expanded="false">
+          <div class="avatar" id="avatar">HR</div>
+          <div class="u-meta">
+            <div class="nm" id="hrName">Nguyễn HR</div>
+            <div class="uid">Phòng Nhân sự</div>
+          </div>
+          <svg class="chev" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </summary>
+
+        <div class="user-popover" role="menu">
+          <a role="menuitem" href="#profile" class="mi">
+            <svg class="mi-ico" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-8 2.24-8 5v1h16v-1c0-2.76-3.6-5-8-5Z" fill="currentColor"/>
+            </svg>
+            Quản lý tài khoản
+          </a>
+
+          <a role="menuitem" href="#change-pass" class="mi">
+            <svg class="mi-ico" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M17 8V6a5 5 0 0 0-10 0v2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-2Zm-8 0V6a3 3 0 0 1 6 0v2H9Z" fill="currentColor"/>
+            </svg>
+            Đổi mật khẩu
+          </a>
+
+          <a role="menuitem" href="#support" class="mi">
+            <svg class="mi-ico" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2a10 10 0 1 0 6.32 17.94L22 22l-2.06-3.68A10 10 0 0 0 12 2Zm1 15h-2v-2h2v2Zm2.07-7.75-.9.92A3.5 3.5 0 0 0 13.5 12h-2v-.5c0-.83.67-1.5 1.5-1.5a1.5 1.5 0 1 0-1.5-1.5H9a3 3 0 1 1 6 0c0 .66-.26 1.3-.93 2.25Z" fill="currentColor"/>
+            </svg>
+            Trung tâm hỗ trợ
+          </a>
+
+          <hr class="menu-divider" />
+
+          <button role="menuitem" type="button" class="mi link-danger" id="btnLogout">
+            <svg class="mi-ico" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M10 17v2H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h6v2H5v10h5Zm9.59-5-3-3L17 7l5 5-5 5-1.41-2 3-3H11v-2h8.59Z" fill="currentColor"/>
+            </svg>
+            Đăng xuất
+          </button>
+        </div>
+      </details>
+
+    </div>
+  </header>
+
+<div class="shell">
+  <div class="card">
+    <div class="grid3">
+      <div class="field">
+        <label>Cấp/Khối</label>
+        <select id="fGrade">
+          <option value="">Tất cả</option>
+          <option>THCS</option>
+          <option>THPT</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Môn học</label>
+        <select id="fSubject">
+          <option value="">Tất cả</option>
+          <option>Toán</option>
+          <option>Lý</option>
+          <option>Hóa</option>
+          <option>Tiếng Anh</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Tìm kiếm</label>
+        <input id="fQuery" class="search" placeholder="VD: Toán 11 NC, Lý 10..."/>
+      </div>
+    </div>
+    <div class="hstack mt-12">
+      <button class="btn btn-primary" onclick="render()">Lọc</button>
+      <button class="btn btn-ghost" onclick="resetFilters()">Xóa lọc</button>
+    </div>
+  </div>
+
+  <div id="classList" class="grid3 mt-16"></div>
+</div>
+
+<footer class="footer">© 2025 Class Catalog</footer>
+
+<script>
+  const data = [
+    {id:'MATH11X', title:'Toán 11 Nâng cao', grade:'THPT', subject:'Toán', desc:'Ôn luyện nâng cao, chuyên đề giới hạn - đạo hàm', price:399000},
+    {id:'PHY10B',  title:'Vật lý 10 Cơ bản', grade:'THPT', subject:'Lý',   desc:'Cơ học, chuyển động thẳng đều - biến đổi', price:299000},
+    {id:'CHEM12D', title:'Hóa 12 Luyện đề',   grade:'THPT', subject:'Hóa',  desc:'Luyện đề tổng hợp trước kỳ thi THPTQG',   price:499000},
+    {id:'ENG6C',   title:'Tiếng Anh 6 Giao tiếp', grade:'THCS', subject:'Tiếng Anh', desc:'Giao tiếp căn bản + phát âm', price:199000}
+  ];
+
+  function resetFilters(){ fGrade.value=''; fSubject.value=''; fQuery.value=''; render(); }
+  function render(){
+    const g=fGrade.value||'', s=fSubject.value||'', q=(fQuery.value||'').toLowerCase();
+    const wrap = document.getElementById('classList'); wrap.innerHTML='';
+    data.filter(c =>
+      (!g || c.grade===g) && (!s || c.subject===s) &&
+      (!q || (c.title+c.desc).toLowerCase().includes(q))
+    ).forEach(c=>{
+      const card = document.createElement('div'); card.className='card';
+      card.innerHTML = `
+        <div class="stack">
+          <div class="hstack" style="justify-content:space-between">
+            <strong>${c.title}</strong>
+            <span class="tag">${c.grade} • ${c.subject}</span>
+          </div>
+          <div class="muted">${c.desc}</div>
+          <div class="hstack" style="justify-content:space-between">
+            <div><strong>${(c.price).toLocaleString('vi-VN')}₫</strong></div>
+            <a class="btn btn-primary" href="./Lesson.html?id=${c.id}">Xem chi tiết</a>
+          </div>
+        </div>
+      `;
+      wrap.appendChild(card);
+    });
+  }
+  render();
+</script>
+</body>
+</html>

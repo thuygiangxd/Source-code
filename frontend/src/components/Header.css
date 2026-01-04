@@ -1,0 +1,272 @@
+/* ========== HEADER CHUNG ========== */
+
+.site-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 50 !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+}
+
+.header-inner {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 14px 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+}
+
+/* Logo + chữ GIASUNO1 */
+.brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-weight: 800 !important;
+  font-size: 32px !important;
+  color: #ab72a4 !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+
+.brand-logo {
+  width: 60px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+  background: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.brand span {
+  font-family: "Courier New", Courier, monospace !important;
+  font-weight: 900 !important;
+  color: #ab72a4 !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* ========== MENU CHÍNH ========== */
+
+nav {
+  margin-left: auto !important;
+}
+
+.nav {
+  display: flex !important;
+  gap: 16px !important;
+  align-items: center !important;
+}
+
+.nav a {
+  color: #1f2937 !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  padding: 8px 10px !important;
+  border-radius: 10px !important;
+  cursor: pointer !important;
+}
+
+.nav a:hover {
+  background: #f5f3ff !important;   /* nhạt giống HTML */
+}
+
+/* ========== DROPDOWN TÀI KHOẢN (details.user-mini) ========== */
+
+.user-mini {
+  position: relative !important;     /* để popover bám theo */
+  margin-left: 12px !important;
+}
+
+/* summary */
+.avatar-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 6px 10px !important;
+  border-radius: 999px !important;
+  border: 1px solid #e5e7eb !important;
+  background: #ffffff !important;
+  cursor: pointer !important;
+  list-style: none !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+  transition: box-shadow 0.2s, border-color 0.2s, background 0.2s !important;
+}
+
+.avatar-btn:hover {
+  border-color: #d8dbe1 !important;
+  background: #f8f8fb !important;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08) !important;
+}
+
+.user-mini[open] .avatar-btn {
+  box-shadow: 0 0 0 3px rgba(172, 23, 130, 0.22) !important;
+}
+
+/* Avatar dạng chữ (JSX hiện tại) */
+.avatar {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #f472b6, #ab72a4) !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Avatar dạng ảnh (nếu sau này dùng <img>) */
+.avatar-btn img {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  flex-shrink: 0 !important;
+}
+
+.u-meta {
+  display: flex !important;
+  flex-direction: column !important;
+  line-height: 1.1 !important;
+}
+
+.u-meta .nm {
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  color: #111827 !important;
+}
+
+.u-meta .uid {
+  font-size: 12px !important;
+  color: #6b7280 !important;
+}
+
+.chev {
+  margin-left: 4px !important;
+  opacity: 0.7 !important;
+  transition: transform 0.2s ease !important;
+}
+
+details[open] .chev {
+  transform: rotate(180deg) !important;
+}
+
+/* Popover menu */
+.user-popover {
+  position: absolute !important;
+  right: 0 !important;
+  top: calc(100% + 8px) !important;
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
+  min-width: 220px !important;
+  padding: 8px 0 !important;
+  z-index: 100 !important;
+  animation: popIn 0.18s ease-out !important;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Item trong popover */
+.user-popover .mi {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: 100% !important;
+  padding: 10px 14px !important;
+  background: none !important;
+  border: none !important;
+  color: #1f2937 !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: background 0.15s, color 0.15s !important;
+}
+
+.user-popover .mi:hover {
+  background: #f7f9ff !important;
+  color: #ab72a4 !important;
+}
+
+.user-popover .mi-ico {
+  width: 18px !important;
+  height: 18px !important;
+  flex: 0 0 18px !important;
+  opacity: 0.85 !important;
+}
+
+.menu-divider {
+  border: none !important;
+  border-top: 1px solid #e5e7eb !important;
+  margin: 6px 0 !important;
+}
+
+.link-danger {
+  color: #b42318 !important;
+}
+
+.link-danger:hover {
+  background: #fff5f5 !important;
+  color: #a10e2b !important;
+}
+
+/* ========== NÚT MENU MOBILE ========== */
+
+.menu-btn {
+  margin-left: auto !important;
+  display: none !important;
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 12px !important;
+  border: 1px solid #e5e7eb !important;
+  background: #ffffff !important;
+  cursor: pointer !important;
+}
+
+.menu-btn:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ========== RESPONSIVE ========== */
+/* Mobile: ẩn menu, hiện nút 3 gạch */
+@media (max-width: 780px) {
+  .nav {
+    display: none !important;
+  }
+
+  .menu-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+.notif-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  margin-right: 8px;
+  font-size: 20px;
+}
+.notif-btn:hover {
+  color: var(--brand);
+}
+
+.nm {
+  margin-bottom: 2px;
+}

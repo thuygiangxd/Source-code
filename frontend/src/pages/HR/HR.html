@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gia Sư Trực Tuyến – HR</title>
+  <meta name="description" content="Trang quản lý nhân sự cho HR trung tâm gia sư." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="HR.css" />
+
+  <!-- CSS nhỏ cho cơ chế tab trên -->
+  <style>
+    .page-section {
+      display: none;
+    }
+
+    .page-section.is-active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#">
+        <img class="brand-logo" src="../images/Logo_Group.png" alt="G&3N Logo" />
+        <span>GIASUNO1</span>
+      </a>
+
+      <nav>
+        <div class="nav">
+          <!-- menu trên: dùng class top-link để tách khỏi sidebar -->
+          <a class="top-link is-active" href="#nhansu">Nhân sự</a>
+          <a class="top-link" href="#hocvien">Học viên</a>
+          <a class="top-link" href="#khoahoc">Khóa học</a>
+          <a class="top-link" href="#taichinh">Tài chính</a>
+
+          <details class="user-mini" aria-label="Tùy chọn tài khoản">
+            <summary class="avatar-btn" aria-haspopup="menu" aria-expanded="false">
+              <img src="../images/avatar.jpg" alt="Ảnh đại diện" />
+              <div class="u-meta">
+                <div class="nm" id="userName">Cao Thùy Giang</div>
+                <div class="uid">Mã NV: 52200138</div>
+              </div>
+              <svg class="chev" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </summary>
+
+            <div class="user-popover" role="menu">
+              <a role="menuitem" href="#thong-tin" class="mi">
+                <svg class="mi-ico" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.4 0-8 2.24-8 5v1h16v-1c0-2.76-3.6-5-8-5Z"
+                    fill="currentColor" />
+                </svg>
+                Quản lý thông tin
+              </a>
+
+              <a role="menuitem" href="#doi-mat-khau" class="mi">
+                <svg class="mi-ico" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M17 8V6a5 5 0 0 0-10 0v2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-2Zm-8 0V6a3 3 0 0 1 6 0v2H9Z"
+                    fill="currentColor" />
+                </svg>
+                Đổi mật khẩu
+              </a>
+
+              <hr class="menu-divider" />
+
+              <button role="menuitem" type="button" class="mi link-danger" id="btnSignOut">
+                <svg class="mi-ico" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M10 17v2H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h6v2H5v10h5Zm9.59-5-3-3L17 7l5 5-5 5-1.41-2 3-3H11v-2h8.59Z"
+                    fill="currentColor" />
+                </svg>
+                Đăng xuất
+              </button>
+            </div>
+          </details>
+        </div>
+      </nav>
+
+      <button class="menu-btn" aria-label="Mở menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="#111" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== MAIN ========== -->
+  <main class="page-main">
+    <!-- ====== TAB: NHÂN SỰ ====== -->
+    <section id="nhansu" class="page-section is-active">
+      <div class="shell">
+        <!-- SIDEBAR NHÂN SỰ -->
+        <aside class="sidebar">
+          <nav class="side-nav">
+            <a class="side-link is-active" href="#dsnhansu" id="tab-nhansu">Quản lý nhân sự</a>
+            <a class="side-link" href="#jobwaiting" id="tab-hosodangcho">Hồ sơ đang chờ</a>
+          </nav>
+        </aside>
+
+        <!-- NỘI DUNG CHÍNH NHÂN SỰ -->
+        <section class="content-area">
+          <!-- QUẢN LÝ NHÂN SỰ -->
+          <div id="section-nhansu" class="content-section active">
+            <h2>Danh sách gia sư trong trung tâm</h2>
+            <p class="muted" style="margin-bottom:14px;"></p>
+
+            <!-- Thanh tìm kiếm + lọc -->
+            <div class="row" style="flex-wrap:wrap; margin-bottom:16px; align-items:stretch;">
+              <div class="search" style="flex:1 1 260px; max-width:380px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M11 4a7 7 0 1 1-4.95 2.05A7 7 0 0 1 11 4m0-2a9 9 0 1 0 5.66 15.86l3.74 3.74 1.41-1.41-3.74-3.74A9 9 0 0 0 11 2Z"
+                    fill="#9ca3af" />
+                </svg>
+                <input type="text" id="searchTutor" placeholder="Tìm theo tên hoặc mã gia sư...">
+              </div>
+
+              <select id="filterTrinhdo"
+                style="padding:8px 10px;border:1px solid var(--border);border-radius:10px;">
+                <option value="">Trình độ</option>
+                <option value="Tieu hoc">Tiểu học</option>
+                <option value="THCS">THCS</option>
+                <option value="THPT">THPT</option>
+                <option value="Dai hoc">Đại học</option>
+                <option value="Khac">Khác</option>
+              </select>
+
+              <select id="filterContract"
+                style="padding:8px 10px;border:1px solid var(--border);border-radius:10px;">
+                <option value="">Tình trạng hợp đồng</option>
+                <option value="Hoat dong">Đang hoạt động</option>
+                <option value="Tam dung">Tạm dừng</option>
+                <option value="Het han">Hết hạn</option>
+              </select>
+
+              <button class="btn btn-ghost">Lọc</button>
+              <button class="btn btn-primary">+ Thêm gia sư</button>
+            </div>
+
+            <!-- Bảng danh sách gia sư -->
+            <table class="schedule-table">
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>Mã gia sư</th>
+                  <th>Họ tên</th>
+                  <th>Giới tính</th>
+                  <th>Trình độ</th>
+                  <th>Tình trạng hợp đồng</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    <a href="HR_TutorDetail.html?id=GS001" class="btn btn-ghost"
+                      style="padding:4px 10px;font-size:13px;min-width:auto;">
+                      GS001
+                    </a>
+                  </td>
+                  <td>
+                    <a href="HR_TutorDetail.html?id=GS001" class="btn btn-ghost"
+                      style="padding:4px 10px;font-size:13px;min-width:auto;">
+                      Nguyễn Minh An
+                    </a>
+                  </td>
+                  <td>Nam</td>
+                  <td>Đại học</td>
+                  <td><span class="pill">Đang hoạt động</span></td>
+                </tr>
+
+                <tr>
+                  <td>2</td>
+                  <td>
+                    <a href="HR_TutorDetail.html?id=GS002" class="btn btn-ghost"
+                      style="padding:4px 10px;font-size:13px;min-width:auto;">
+                      GS002
+                    </a>
+                  </td>
+                  <td>
+                    <a href="HR_TutorDetail.html?id=GS002" class="btn btn-ghost"
+                      style="padding:4px 10px;font-size:13px;min-width:auto;">
+                      Trần Thảo Vy
+                    </a>
+                  </td>
+                  <td>Nữ</td>
+                  <td>THPT</td>
+                  <td><span class="pill">Tạm dừng</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- HỒ SƠ ĐANG CHỜ -->
+          <div id="section-hosodangcho" class="content-section">
+            <h2>Hồ sơ gia sư đang chờ xét duyệt</h2>
+            <p class="muted" style="margin-bottom:14px;"></p>
+
+            <!-- Thanh tìm kiếm + lọc -->
+            <div class="row" style="flex-wrap:wrap; margin-bottom:16px; align-items:stretch;">
+              <div class="search" style="flex:1 1 260px; max-width:380px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M11 4a7 7 0 1 1-4.95 2.05A7 7 0 0 1 11 4m0-2a9 9 0 1 0 5.66 15.86l3.74 3.74 1.41-1.41-3.74-3.74A9 9 0 0 0 11 2Z"
+                    fill="#9ca3af" />
+                </svg>
+                <input type="text" placeholder="Tìm theo tên hoặc mã hồ sơ...">
+              </div>
+
+              <select style="padding:8px 10px;border:1px solid var(--border);border-radius:10px;">
+                <option value="">Trình độ</option>
+                <option value="Tieu hoc">Tiểu học</option>
+                <option value="THCS">THCS</option>
+                <option value="THPT">THPT</option>
+                <option value="Dai hoc">Đại học</option>
+                <option value="Khac">Khác</option>
+              </select>
+
+              <select style="padding:8px 10px;border:1px solid var(--border);border-radius:10px;">
+                <option value="">Tình trạng hồ sơ</option>
+                <option value="Dang cho">Đang chờ</option>
+                <option value="Het han">Hết hạn</option>
+              </select>
+
+              <button class="btn btn-ghost">Lọc</button>
+            </div>
+
+            <table class="schedule-table">
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>Mã hồ sơ</th>
+                  <th>Họ tên</th>
+                  <th>Trình độ</th>
+                  <th>Khối dạy đăng ký</th>
+                  <th>Ngày nộp</th>
+                  <th>Trạng thái</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    <a href="HR_ApplicationDetail.html?id=HS001" class="btn btn-ghost"
+                      style="padding:4px 10px;font-size:13px;min-width:auto;">
+                      HS001
+                    </a>
+                  </td>
+                  <td>
+                    <a href="HR_ApplicationDetail.html?id=HS001" class="btn btn-ghost"
+                      style="padding:4px 10px;font-size:13px;min-width:auto;">
+                      Phạm Văn Dũng
+                    </a>
+                  </td>
+                  <td>Đại học</td>
+                  <td>THPT</td>
+                  <td>10/11/2025</td>
+                  <td><span class="pill">Đang chờ duyệt</span></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    <a href="HR_ApplicationDetail.html?id=HS002" class="btn btn-ghost"
+                      style="padding:4px 10px;font-size:13px;min-width:auto;">
+                      HS002
+                    </a>
+                  </td>
+                  <td>
+                    <a href="HR_ApplicationDetail.html?id=HS002" class="btn btn-ghost"
+                      style="padding:4px 10px;font-size:13px;min-width:auto;">
+                      Lê Ngọc Ánh
+                    </a>
+                  </td>
+                  <td>Thạc sĩ</td>
+                  <td>Đại học</td>
+                  <td>09/11/2025</td>
+                  <td><span class="pill">Thiếu giấy tờ</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </section>
+
+        <!-- ====== TAB: HỌC VIÊN ====== -->
+    <section id="hocvien" class="page-section">
+      <div class="shell">
+        <!-- CỘT TRÁI: CARD BỘ LỌC HỌC VIÊN -->
+        <aside class="sidebar">
+          <div class="hv-card">
+            <h2>Bộ lọc</h2>
+
+            <div class="search" style="margin-bottom:12px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M11 4a7 7 0 1 1-4.95 2.05A7 7 0 0 1 11 4m0-2a9 9 0 1 0 5.66 15.86l3.74 3.74 1.41-1.41-3.74-3.74A9 9 0 0 0 11 2Z"
+                  fill="#9ca3af" />
+              </svg>
+              <input type="text" id="searchStudent" placeholder="Mã học viên...">
+            </div>
+
+            <select id="filterGrade"
+              style="width:100%;margin-bottom:8px;padding:8px 10px;border:1px solid var(--border);border-radius:10px;">
+              <option value="">Khối / Lớp</option>
+              <option value="Tieu hoc">Tiểu học</option>
+              <option value="THCS">THCS</option>
+              <option value="THPT">THPT</option>
+              <option value="Daihoc">Đại học</option>
+            </select>
+
+            <select id="filterStatus"
+              style="width:100%;margin-bottom:12px;padding:8px 10px;border:1px solid var(--border);border-radius:10px;">
+              <option value="">Trạng thái</option>  
+              <option value="Dang su dung">Đang sử dụng</option>
+              <option value="Khoa tam thoi">Khóa tạm thời</option>
+              <option value="Khoa vinh vien">Khóa vĩnh viễn</option>
+            </select>
+
+            <button class="btn btn-primary" style="width:100%;">Lọc</button>
+          </div>
+        </aside>
+
+        <!-- CỘT PHẢI: BẢNG DANH SÁCH HỌC VIÊN -->
+        <section class="content-area">
+          <h2>Danh sách học viên</h2>
+          <p class="muted" style="margin-bottom:14px;">
+            Tổng quan các học viên đang có trong hệ thống.
+          </p>
+
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>STT</th>
+                <th>Mã học viên</th>
+                <th>Họ tên</th>
+                <th>Giới tính</th>
+                <th>Khối / Lớp</th>
+                <th>Số khóa đang học</th>
+                <th>Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>
+                  <a href="HR_StudentDetail.html?id=HV001" class="btn btn-ghost"
+                    style="padding:4px 10px;font-size:13px;min-width:auto;">
+                    HV001
+                  </a>
+                </td>
+                <td>
+                  <a href="HR_StudentDetail.html?id=HV001" class="btn btn-ghost"
+                    style="padding:4px 10px;font-size:13px;min-width:auto;">
+                    Nguyễn Gia Huy
+                  </a>
+                </td>
+                <td>Nam</td>
+                <td>Lớp 10</td>
+                <td>2</td>
+                <td><span class="pill">Đang sử dụng</span></td>
+              </tr>
+
+            
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </section>
+
+        <!-- ====== TAB: KHÓA HỌC ====== -->
+    <section id="khoahoc" class="page-section">
+      <div class="shell">
+        <!-- SIDEBAR KHÓA HỌC -->
+        <aside class="sidebar">
+          <nav class="side-nav">
+            <a class="side-link is-active" href="#course-list" id="tab-course">Quản lý khóa học</a>
+            <a class="side-link" href="#class-list" id="tab-class">Quản lý lớp học</a>
+            <a class="side-link" href="#subject-docs" id="tab-resource">Tài liệu theo môn</a>
+          </nav>
+        </aside>
+
+        <!-- NỘI DUNG CHÍNH KHÓA HỌC -->
+        <section class="content-area">
+          <!-- ==== 1. QUẢN LÝ KHÓA HỌC ==== -->
+          <div id="section-course-list" class="content-section active">
+            <h2>Quản lý khóa học</h2>
+            <p class="muted" style="margin-bottom:14px;">
+              Danh sách các khóa học đang triển khai tại trung tâm.
+            </p>
+
+            <!-- Thanh tìm kiếm + lọc -->
+            <div class="row" style="flex-wrap:wrap; margin-bottom:16px; align-items:stretch;">
+              <div class="search" style="flex:1 1 260px; max-width:380px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M11 4a7 7 0 1 1-4.95 2.05A7 7 0 0 1 11 4m0-2a9 9 0 1 0 5.66 15.86l3.74 3.74 1.41-1.41-3.74-3.74A9 9 0 0 0 11 2Z"
+                    fill="#9ca3af" />
+                </svg>
+                <input type="text" id="searchCourse" placeholder="Tìm theo tên hoặc mã khóa học...">
+              </div>
+
+              <!-- filter theo nhóm khóa học (từ categories) -->
+              <select id="filterCategory"
+                style="padding:8px 10px;border:1px solid var(--border);border-radius:10px;">
+                <option value="">Nhóm khóa học</option>
+                <option value="daihoc">Đại học - Cao đẳng</option>
+                <option value="hsgioi">Bồi dưỡng học sinh giỏi</option>
+                <option value="ltdh">Luyện thi đại học</option>
+                <option value="thpt">THPT (Lớp 10 - 11 - 12)</option>
+                <option value="vao10">Luyện thi vào 10</option>
+                <option value="thcs">THCS (Lớp 6 - 7 - 8 - 9)</option>
+                <option value="tieu-hoc">Tiểu học (Lớp 1 - 5)</option>
+                <option value="ngoaingu">Ngoại ngữ</option>
+              </select>
+
+              <select id="filterCourseGrade"
+                style="padding:8px 10px;border:1px solid var(--border);border-radius:10px;">
+                <option value="">Khối / Lớp</option>
+                <option value="1">Lớp 1</option>
+                <option value="2">Lớp 2</option>
+                <option value="3">Lớp 3</option>
+                <option value="4">Lớp 4</option>
+                <option value="5">Lớp 5</option>
+                <option value="6">Lớp 6</option>
+                <option value="7">Lớp 7</option>
+                <option value="8">Lớp 8</option>
+                <option value="9">Lớp 9</option>
+                <option value="10">Lớp 10</option>
+                <option value="11">Lớp 11</option>
+                <option value="12">Lớp 12</option>
+              </select>
+
+              <button class="btn btn-ghost">Lọc</button>
+              <button class="btn btn-primary">+ Thêm khóa học</button>
+            </div>
+
+            <!-- Bảng danh sách khóa học -->
+            <table class="schedule-table">
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>Mã khóa học</th>
+                  <th>Môn</th>
+                  <th>Lớp / Cấp</th>
+                  <th>Số lớp đang mở</th>
+                  <th>Học phí / tháng</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Ví dụ: bạn có thể bổ sung thêm nhiều dòng nữa -->
+                <tr>
+                  <td>1</td>
+                  <td>toanlop1</td>
+                  <td>Toán</td>
+                  <td>Lớp 1</td>
+                  <td>4</td>
+                  <td>500.000 VNĐ</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>tvietlop1</td>
+                  <td>Tiếng Việt</td>
+                  <td>Lớp 1</td>
+                  <td>3</td>
+                  <td>500.000 VNĐ</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>anhthcs</td>
+                  <td>Tiếng Anh</td>
+                  <td>THCS</td>
+                  <td>5</td>
+                  <td>600.000 VNĐ</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>toan12</td>
+                  <td>Toán</td>
+                  <td>Lớp 12</td>
+                  <td>6</td>
+                  <td>750.000 VNĐ</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>ltdh-khtn</td>
+                  <td>Luyện thi ĐH khối A</td>
+                  <td>Thi THPTQG</td>
+                  <td>3</td>
+                  <td>1.200.000 VNĐ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- ==== 2. QUẢN LÝ LỚP HỌC ==== -->
+          <div id="section-class-list" class="content-section">
+            <h2>Quản lý lớp học</h2>
+            <p class="muted" style="margin-bottom:14px;">
+              Danh sách các lớp đang mở cho từng khóa học.
+            </p>
+
+            <!-- Có thể thêm filter sau nếu cần -->
+
+            <table class="schedule-table">
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>Mã lớp học</th>
+                  <th>Mã học viên</th>
+                  <th>Mã gia sư</th>
+                  <th>Môn</th>
+                  <th>Lớp / Cấp</th>
+                  <th>Thời gian bắt đầu</th>
+                  <th>Thời gian kết thúc</th>
+                  <th>Trạng thái</th>
+                  <th>Học phí / tháng</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- ví dụ 1 lớp Toán lớp 1 -->
+                <tr>
+                  <td>1</td>
+                  <td>
+                    <a href="HR_ClassDetail.html?id=L001" class="btn btn-ghost"
+                      style="padding:4px 10px;font-size:13px;min-width:auto;">
+                      L001
+                    </a>
+                  </td>
+                  <td>
+                    <a href="HR_StudentDetail.html?id=HV001" class="btn btn-ghost"
+                      style="padding:4px 10px;font-size:13px;min-width:auto;">
+                      HV001
+                    </a>
+                  </td>
+                  <td>
+                    <a href="HR_TutorDetail.html?id=GS001" class="btn btn-ghost"
+                      style="padding:4px 10px;font-size:13px;min-width:auto;">
+                      GS001
+                    </a>
+                  </td>
+                  <td>Toán</td>
+                  <td>Lớp 1</td>
+                  <td>01/11/2025</td>
+                  <td>01/02/2026</td>
+                  <td><span class="pill">Đang học</span></td>
+                  <td>500.000 VNĐ</td>
+                </tr>
+
+                <!-- ví dụ lớp thứ 2 -->
+                <tr>
+                  <td>2</td>
+                  <td>
+                    <a href="HR_ClassDetail.html?id=L002" class="btn btn-ghost"
+                      style="padding:4px 10px;font-size:13px;min-width:auto;">
+                      L002
+                    </a>
+                  </td>
+                  <td>
+                    <a href="HR_StudentDetail.html?id=HV002" class="btn btn-ghost"
+                      style="padding:4px 10px;font-size:13px;min-width:auto;">
+                      HV002
+                    </a>
+                  </td>
+                  <td>
+                    <a href="HR_TutorDetail.html?id=GS002" class="btn btn-ghost"
+                      style="padding:4px 10px;font-size:13px;min-width:auto;">
+                      GS002
+                    </a>
+                  </td>
+                  <td>Tiếng Anh</td>
+                  <td>THCS</td>
+                  <td>15/10/2025</td>
+                  <td>15/01/2026</td>
+                  <td><span class="pill">Đang học</span></td>
+                  <td>600.000 VNĐ</td>
+                </tr>
+
+                <!-- ví dụ lớp đã kết thúc -->
+                <tr>
+                  <td>3</td>
+                  <td>
+                    <a href="HR_ClassDetail.html?id=L003" class="btn btn-ghost"
+                      style="padding:4px 10px;font-size:13px;min-width:auto;">
+                      L003
+                    </a>
+                  </td>
+                  <td>
+                    <a href="HR_StudentDetail.html?id=HV003" class="btn btn-ghost"
+                      style="padding:4px 10px;font-size:13px;min-width:auto;">
+                      HV003
+                    </a>
+                  </td>
+                  <td>
+                    <a href="HR_TutorDetail.html?id=GS003" class="btn btn-ghost"
+                      style="padding:4px 10px;font-size:13px;min-width:auto;">
+                      GS003
+                    </a>
+                  </td>
+                  <td>Toán</td>
+                  <td>Lớp 12</td>
+                  <td>01/08/2025</td>
+                  <td>01/11/2025</td>
+                  <td><span class="pill">Hoàn thành</span></td>
+                  <td>750.000 VNĐ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- ==== 3. TÀI LIỆU THEO MÔN ==== -->
+          <div id="section-subject-docs" class="content-section">
+            <h2>Tài liệu theo môn</h2>
+            <p class="muted" style="margin-bottom:14px;">
+              Thống kê tài liệu học tập theo từng môn học và khối lớp.
+            </p>
+
+            <table class="schedule-table">
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>Môn</th>
+                  <th>Khối / Lớp</th>
+                  <th>Số tài liệu</th>
+                  <th>Định dạng chính</th>
+                  <th>Thao tác</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Toán</td>
+                  <td>Tiểu học (1–5)</td>
+                  <td>24</td>
+                  <td>PDF, Worksheet</td>
+                  <td>
+                    <a href="HR_SubjectResources.html?subject=math-primary"
+                      class="btn btn-ghost"
+                      style="padding:4px 10px;font-size:13px;min-width:auto;">
+                      Xem chi tiết
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Tiếng Anh</td>
+                  <td>THCS</td>
+                  <td>18</td>
+                  <td>Slide, Video</td>
+                  <td>
+                    <a href="HR_SubjectResources.html?subject=english-thcs"
+                      class="btn btn-ghost"
+                      style="padding:4px 10px;font-size:13px;min-width:auto;">
+                      Xem chi tiết
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Luyện thi ĐH khối A</td>
+                  <td>Thi THPTQG</td>
+                  <td>35</td>
+                  <td>Đề luyện, PDF</td>
+                  <td>
+                    <a href="HR_SubjectResources.html?subject=ltdh-khtn"
+                      class="btn btn-ghost"
+                      style="padding:4px 10px;font-size:13px;min-width:auto;">
+                      Xem chi tiết
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </section>
+    <!-- ====== TAB: TÀI CHÍNH ====== -->
+<section id="taichinh" class="page-section">
+  <div class="shell">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <nav class="side-nav">
+        <a class="side-link is-active" href="#hocphi" id="tab-hocphi">Quản lý học phí</a>
+        <a class="side-link" href="#luong" id="tab-luong">Lương gia sư</a>
+        <a class="side-link" href="#chamcong" id="tab-chamcong">Bảng lương</a>
+        <a class="side-link" href="#doanhthu" id="tab-doanhthu">Doanh thu</a>
+      </nav>
+    </aside>
+
+    <!-- NỘI DUNG CHÍNH -->
+    <section class="content-area">
+
+      <!-- HỌC PHÍ -->
+      <div id="section-hocphi" class="content-section active">
+        <h2>Quản lý học phí</h2>
+        <p class="muted" style="margin-bottom:14px;">Theo dõi tình trạng học phí của học viên theo từng khóa học.</p>
+
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Mã học viên</th>
+              <th>Họ tên</th>
+              <th>Khóa học</th>
+              <th>Số buổi / Gói</th>
+              <th>Đã thu</th>
+              <th>Còn thiếu</th>
+              <th>Trạng thái</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>HV001</td>
+              <td>Nguyễn Gia Huy</td>
+              <td>Toán lớp 10</td>
+              <td>12 / 12</td>
+              <td>6.000.000đ</td>
+              <td>0đ</td>
+              <td><span class="pill">Đã thanh toán</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>HV002</td>
+              <td>Trần Mai Phương</td>
+              <td>Tiếng Anh lớp 8</td>
+              <td>8 / 12</td>
+              <td>4.000.000đ</td>
+              <td>2.000.000đ</td>
+              <td><span class="pill danger">Còn nợ</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- LƯƠNG GIA SƯ -->
+      <div id="section-luong" class="content-section">
+        <h2>Lương gia sư</h2>
+        <p class="muted" style="margin-bottom:14px;">Thống kê lương của các gia sư theo kỳ trả lương.</p>
+
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Mã gia sư</th>
+              <th>Họ tên</th>
+              <th>Số buổi dạy</th>
+              <th>Đơn giá / buổi</th>
+              <th>Tổng lương</th>
+              <th>Trạng thái</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>GS001</td>
+              <td>Nguyễn Minh An</td>
+              <td>20</td>
+              <td>200.000đ</td>
+              <td>4.000.000đ</td>
+              <td><span class="pill">Đã thanh toán</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>GS002</td>
+              <td>Trần Thảo Vy</td>
+              <td>18</td>
+              <td>200.000đ</td>
+              <td>3.600.000đ</td>
+              <td><span class="pill">Chưa trả</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CHẤM CÔNG -->
+      <div id="section-chamcong" class="content-section">
+        <h2>Bảng lương chi tiết</h2>
+        <p class="muted" style="margin-bottom:14px;">Theo dõi buổi dạy và tình trạng chấm công từng gia sư.</p>
+
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Mã buổi</th>
+              <th>Mã lớp</th>
+              <th>Mã gia sư</th>
+              <th>Ngày</th>
+              <th>Giờ</th>
+              <th>Trạng thái</th>
+              <th>Ghi chú</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>B001</td>
+              <td>L001</td>
+              <td>GS001</td>
+              <td>09/11/2025</td>
+              <td>18:00–19:30</td>
+              <td><span class="pill">Đã dạy</span></td>
+              <td>–</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>B002</td>
+              <td>L001</td>
+              <td>GS001</td>
+              <td>10/11/2025</td>
+              <td>18:00–19:30</td>
+              <td><span class="pill danger">Hủy buổi</span></td>
+              <td>Học viên bận</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 4️⃣ DOANH THU -->
+      <div id="section-doanhthu" class="content-section">
+        <h2>Doanh thu</h2>
+        <p class="muted" style="margin-bottom:14px;">Tổng hợp doanh thu và chi phí của trung tâm.</p>
+
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>Tháng</th>
+              <th>Tổng học phí thu</th>
+              <th>Lương chi trả</th>
+              <th>Chi phí khác</th>
+              <th>Lợi nhuận tạm tính</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10/2025</td>
+              <td>60.000.000đ</td>
+              <td>35.000.000đ</td>
+              <td>5.000.000đ</td>
+              <td>20.000.000đ</td>
+            </tr>
+            <tr>
+              <td>11/2025</td>
+              <td>72.000.000đ</td>
+              <td>40.000.000đ</td>
+              <td>6.000.000đ</td>
+              <td>26.000.000đ</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>
+      Copyright © 2025 Online Tutor. Developed by
+      <button class="invisible-btn">Group 09, TDTU</button>.<br />
+      Reproduction or distribution without permission is prohibited.
+    </p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    // ----- Tab bên trái (Quản lý nhân sự / Hồ sơ đang chờ) -----
+    const tabNhanSu = document.getElementById('tab-nhansu');
+    const tabHoSo = document.getElementById('tab-hosodangcho');
+    const sectionNhanSu = document.getElementById('section-nhansu');
+    const sectionHoSo = document.getElementById('section-hosodangcho');
+
+    function switchHrTab(tab) {
+      if (tab === 'nhansu') {
+        tabNhanSu.classList.add('is-active');
+        tabHoSo.classList.remove('is-active');
+        sectionNhanSu.classList.add('active');
+        sectionHoSo.classList.remove('active');
+      } else {
+        tabHoSo.classList.add('is-active');
+        tabNhanSu.classList.remove('is-active');
+        sectionHoSo.classList.add('active');
+        sectionNhanSu.classList.remove('active');
+      }
+    }
+
+    tabNhanSu.addEventListener('click', function (e) {
+      e.preventDefault();
+      switchHrTab('nhansu');
+    });
+
+    tabHoSo.addEventListener('click', function (e) {
+      e.preventDefault();
+      switchHrTab('hoso');
+    });
+
+    // ----- Menu trên (Nhân sự / Học viên / Khóa học / Tài chính) -----
+    const topLinks = document.querySelectorAll('.nav .top-link');
+    const pageSections = document.querySelectorAll('.page-section');
+
+    topLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1); // nhansu, hocvien, khoahoc, taichinh
+
+        // đổi class active cho menu trên
+        topLinks.forEach(l => l.classList.remove('is-active'));
+        this.classList.add('is-active');
+
+        // ẩn/hiện section tương ứng
+        pageSections.forEach(sec => {
+          if (sec.id === targetId) {
+            sec.classList.add('is-active');
+          } else {
+            sec.classList.remove('is-active');
+          }
+        });
+
+        // cập nhật hash URL (không bắt buộc)
+        history.replaceState(null, '', '#' + targetId);
+      });
+    });
+
+        // ----- Tabs KHÓA HỌC (Quản lý khóa học / lớp học / tài liệu) -----
+    const tabCourse = document.getElementById('tab-course');
+    const tabClass = document.getElementById('tab-class');
+    const tabResource = document.getElementById('tab-resource');
+
+    const sectionCourseList = document.getElementById('section-course-list');
+    const sectionClassList = document.getElementById('section-class-list');
+    const sectionSubjectDocs = document.getElementById('section-subject-docs');
+
+    function switchCourseTab(tab) {
+      // reset active cho sidebar
+      [tabCourse, tabClass, tabResource].forEach(el => el && el.classList.remove('is-active'));
+      // reset active cho content-section
+      [sectionCourseList, sectionClassList, sectionSubjectDocs].forEach(el => el && el.classList.remove('active'));
+
+      if (tab === 'course') {
+        tabCourse && tabCourse.classList.add('is-active');
+        sectionCourseList && sectionCourseList.classList.add('active');
+      } else if (tab === 'class') {
+        tabClass && tabClass.classList.add('is-active');
+        sectionClassList && sectionClassList.classList.add('active');
+      } else {
+        tabResource && tabResource.classList.add('is-active');
+        sectionSubjectDocs && sectionSubjectDocs.classList.add('active');
+      }
+    }
+
+    if (tabCourse && tabClass && tabResource) {
+      tabCourse.addEventListener('click', function (e) {
+        e.preventDefault();
+        switchCourseTab('course');
+      });
+
+      tabClass.addEventListener('click', function (e) {
+        e.preventDefault();
+        switchCourseTab('class');
+      });
+
+      tabResource.addEventListener('click', function (e) {
+        e.preventDefault();
+        switchCourseTab('resource');
+      });
+    }
+
+    // ----- Tabs TÀI CHÍNH -----
+const tabHocPhi = document.getElementById('tab-hocphi');
+const tabLuong = document.getElementById('tab-luong');
+const tabChamCong = document.getElementById('tab-chamcong');
+const tabDoanhThu = document.getElementById('tab-doanhthu');
+
+const sectionHocPhi = document.getElementById('section-hocphi');
+const sectionLuong = document.getElementById('section-luong');
+const sectionChamCong = document.getElementById('section-chamcong');
+const sectionDoanhThu = document.getElementById('section-doanhthu');
+
+function switchFinanceTab(tab) {
+  [tabHocPhi, tabLuong, tabChamCong, tabDoanhThu].forEach(el => el.classList.remove('is-active'));
+  [sectionHocPhi, sectionLuong, sectionChamCong, sectionDoanhThu].forEach(el => el.classList.remove('active'));
+
+  if (tab === 'hocphi') { tabHocPhi.classList.add('is-active'); sectionHocPhi.classList.add('active'); }
+  else if (tab === 'luong') { tabLuong.classList.add('is-active'); sectionLuong.classList.add('active'); }
+  else if (tab === 'chamcong') { tabChamCong.classList.add('is-active'); sectionChamCong.classList.add('active'); }
+  else { tabDoanhThu.classList.add('is-active'); sectionDoanhThu.classList.add('active'); }
+}
+
+tabHocPhi.addEventListener('click', e => { e.preventDefault(); switchFinanceTab('hocphi'); });
+tabLuong.addEventListener('click', e => { e.preventDefault(); switchFinanceTab('luong'); });
+tabChamCong.addEventListener('click', e => { e.preventDefault(); switchFinanceTab('chamcong'); });
+tabDoanhThu.addEventListener('click', e => { e.preventDefault(); switchFinanceTab('doanhthu'); });
+
+
+  </script>
+</body>
+
+</html>

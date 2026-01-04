@@ -1,0 +1,153 @@
+/* ===== List Tutor Page ===== */
+
+.list-tutor-page {
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+/* ===== Title ===== */
+.list-tutor-section {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.tutor-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+/* ===== Tutor Grid ===== */
+.tutor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 22px;
+}
+
+/* ===== Tutor Card ===== */
+.tutor-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tutor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+}
+
+/* ===== Image Wrapper (fix size) ===== */
+.tutor-img-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;        /* đồng bộ với banner */
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  background: #f4f4f4;
+  border-radius: 18px 18px 0 0;
+}
+
+/* ảnh thống nhất, không méo, crop đẹp */
+.tutor-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* CỰC QUAN TRỌNG – crop như hình 1 */
+  display: block;
+}
+
+/* ===== Tutor Info ===== */
+.tutor-info {
+  padding: 16px 18px 22px;
+}
+
+.tutor-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #111;
+}
+
+.tutor-subject {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Highlight list */
+.tutor-highlights {
+  padding-left: 18px;
+  margin: 0 0 12px;
+}
+
+.tutor-highlights li {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.tutor-location {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brand);
+}
+/* ==== Banner gradient giống "Danh sách khóa học" ==== */
+.tutor-banner {
+  background: linear-gradient(90deg, #a44388, #b773a9);
+  padding: 24px 32px;
+  border-radius: 0px;
+  margin-bottom: 24px;
+}
+
+.tutor-banner h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+/* ===== List Tutor Page ===== */
+
+.list-tutor-page {
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+/* giống fee-shell */
+.list-tutor-shell {
+  max-width: 1200px;
+  margin: 28px auto 50px;
+  padding: 0 16px 32px;
+}
+
+/* ===== Banner giống Học phí – Lệ phí ===== */
+.tutor-banner {
+  background: linear-gradient(90deg, var(--brand-600), var(--brand));
+  padding: 26px 36px;
+  margin-bottom: 28px;
+  border-radius: 0;
+}
+
+.tutor-banner h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.3;
+}
+
+.tutor-subtitle {
+  margin: 8px 0 0;
+  color: #f9f9ff;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ===== Title / Section ===== */
+.list-tutor-section {
+  max-width: 1200px;
+  margin: 30px auto 0;
+  padding: 0 20px;
+}
